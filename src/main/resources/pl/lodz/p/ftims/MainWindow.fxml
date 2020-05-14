@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.lodz.p.ftims.MainController">
+    <children>
+        <TabPane id="MainView" layoutX="-2.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #F5F8FA;" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Main">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1280.0">
+                            <children>
+                                <Button layoutX="1200.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchEnsureWindow" prefHeight="620.0" prefWidth="70.0" style="-fx-background-color: #CED9E0;" text="Logout" textFill="#202b33" />
+                                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="297.357421875" />
+                                <TextArea editable="false" layoutX="15.0" layoutY="56.0" prefHeight="620.0" prefWidth="1170.0" text="Program which offers warehouse management services. &#10;That program was created as a project for the subject of Software Engineering. &#10;&#10;Created by:&#10;Łapciak Radosław (architect)&#10;Bilicki Michał (architect)&#10;Mikołajczyk Bartłomiej&#10;Mucha Marcin&#10;Goleniewski Michał&#10;Lasek Karol&#10;Wąchała Jakub&#10;Grela Radosław&#10;Łapiński Przemysław&#10;Górnik Przemysław&#10;Komuda Przemysław&#10;Rutkowski Szymon&#10;Nowak Gabriel&#10;Bogdan Jakub" wrapText="true" />
+                                <Label layoutX="15.0" layoutY="22.0" text="Login:" />
+                                <TextField fx:id="loggedAs" editable="false" layoutX="55.0" layoutY="18.0" prefHeight="25.0" prefWidth="460.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="products" text="Products">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="600.0">
+                            <children>
+                                <Button defaultButton="false" layoutX="1200.0" layoutY="15.0" maxWidth="-1.0" minWidth="-1.0" mnemonicParsing="false" onAction="#switchAddProductWindow" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3DCC91;" text="Add" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="175.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FF7373;" text="Delete" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="255.0" mnemonicParsing="false" onAction="#refreshAll" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" text="Refresh" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchModifyProductWindow" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FFC940;" text="Modify" textFill="#202b33" />
+                                <TableView fx:id="productsTable" editable="true" layoutX="15.0" layoutY="15.0" prefHeight="660.0" prefWidth="1170.0">
+                                    <columns>
+                                        <TableColumn fx:id="productId" minWidth="40.0" prefWidth="54.0" resizable="false" text="ID" />
+                                        <TableColumn fx:id="productName" minWidth="40.0" prefWidth="185.0" resizable="false" text="Name" />
+                                        <TableColumn fx:id="productPurchasePrice" minWidth="40.0" prefWidth="97.0" text="Purchase Price" />
+                                        <TableColumn fx:id="productSellPrice" minWidth="40.0" prefWidth="88.0" text="Sell Price" />
+                                        <TableColumn fx:id="productDiscount" minWidth="40.0" prefWidth="75.0" text="Discount" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1200.0" layoutY="335.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" text="Raport" onAction="#createProductRaport" textFill="#202b33" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="orders" text="Orders">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="600.0">
+                            <children>
+                                <Button defaultButton="false" layoutX="1200.0" layoutY="15.0" maxWidth="-1.0" minWidth="-1.0" mnemonicParsing="false" onAction="#switchCreateOrder" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3DCC91;" text="Add" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="95.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FF7373;" text="Delete" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="175.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;"  onAction="#refreshAll" text="Refresh" textFill="#202b33" />
+                                <TableView fx:id="orderTable" editable="true" layoutX="15.0" layoutY="15.0" onMouseClicked="#showOrderDetails" prefHeight="660.0" prefWidth="567.0">
+                                    <columns>
+                                        <TableColumn fx:id="orderId" minWidth="40.0" prefWidth="54.0" resizable="false" text="ID" />
+                                        <TableColumn fx:id="clientOrderName" minWidth="40.0" prefWidth="185.0" resizable="false" text="Client" />
+                                        <TableColumn fx:id="totalPrice" minWidth="40.0" prefWidth="177.0" text="Total price" />
+                                        <TableColumn fx:id="orderCompleted" minWidth="0.0" prefWidth="150.0" text="Completed" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1200.0" layoutY="600.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" text="DONE" textFill="#202b33" />
+                        <TableView fx:id="orderTableDetails" layoutX="592.0" layoutY="15.0" prefHeight="661.0" prefWidth="574.0">
+                          <columns>
+                            <TableColumn fx:id="orderProductDetail" prefWidth="285.0" text="Product" />
+                            <TableColumn fx:id="orderQuantityDetail" prefWidth="283.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="clients" text="Clients">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tableViewClients" layoutX="14.0" layoutY="15.0" onMouseClicked="#setSelectedClient" prefHeight="660.0" prefWidth="1170.0">
+                                    <columns>
+                                        <TableColumn fx:id="columnClientId" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="columnClientName" prefWidth="252.0" text="Name" />
+                                        <TableColumn fx:id="ColumnClientStatus" prefWidth="110.0" text="State" />
+                                        <TableColumn fx:id="tableColumnBannedClient" prefWidth="62.0" text="Banned" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1200.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchAddClientWindow" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3DCC91;" text="Add" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="175.0" mnemonicParsing="false" onAction="#deleteClient" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FF7373;" text="Delete" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="255.0" mnemonicParsing="false" onAction="#refreshAll" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" text="Refresh" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchModifyClientWindow" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FFC940;" text="Modify" textFill="#202b33" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="magazine" text="Magazine">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <Button layoutX="1200.0" layoutY="15.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" onAction="#refreshAll" text="Refresh" textFill="#202b33" />
+                            <children>
+                                <TableView fx:id="productLineTable" layoutX="15.0" layoutY="15.0" prefHeight="660.0" prefWidth="1170.0">
+                                    <columns>
+                                        <TableColumn fx:id="productLineId" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="productLineName" prefWidth="302.0" text="Product Name" />
+                                        <TableColumn fx:id="productLineQuantity" prefWidth="122.0" text="Quantity" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="deliveries" text="Deliveries">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="deliveryTable" layoutX="15.0" layoutY="15.0" onMouseClicked="#showDeliveryDetails" prefHeight="660.0" prefWidth="570.0">
+                                    <columns>
+                                        <TableColumn fx:id="deliveryId" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="deliveryDate" prefWidth="202.0" text="Date" />
+                                        <TableColumn fx:id="deliveryCompleted" prefWidth="101.0" text="Completed" />
+                                        <TableColumn fx:id="deliveryTotalPrice" prefWidth="199.0" text="Total Price" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1200.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchAddDelivery" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3DCC91;" text="Add" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="175.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" onAction="#refreshAll" text="Refresh" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="95.0" mnemonicParsing="false" onAction="#deleteDelivery" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FF7373;" text="Delete" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="600.0" mnemonicParsing="false" onAction="#finishDelivery" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" text="DONE" textFill="#202b33" />
+                        <TableView fx:id="deliveryTableDetails" layoutX="602.0" layoutY="15.0" prefHeight="661.0" prefWidth="561.0">
+                          <columns>
+                            <TableColumn fx:id="deliveryProductDetail" prefWidth="272.0" text="Product" />
+                            <TableColumn fx:id="deliveryQuantityDetail" prefWidth="280.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="users" text="Users">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="usersTable" layoutX="15.0" layoutY="15.0" prefHeight="660.0" prefWidth="1170.0">
+                                    <columns>
+                                        <TableColumn fx:id="userId" prefWidth="41.0" text="ID" />
+                                        <TableColumn fx:id="userFirstName" prefWidth="87.0" text="First Name" />
+                                        <TableColumn fx:id="userLastName" prefWidth="99.0" text="Last Name" />
+                                        <TableColumn fx:id="userLogin" prefWidth="63.0" text="Login" />
+                                        <TableColumn fx:id="userType" minWidth="0.0" prefWidth="64.0" text="Type" />
+                                        <TableColumn fx:id="userSalary" prefWidth="68.0" text="Salary" />
+                                        <TableColumn fx:id="userAddress" prefWidth="93.0" text="Address" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1200.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchAddUserWindow" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3DCC91;" text="Add" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="255.0" mnemonicParsing="false" onAction="#refreshAll" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" text="Refresh" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="175.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FF7373;" text="Delete" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchModifyUserWindow" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FFC940;" text="Modify" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="600.0" mnemonicParsing="false" onAction="#paySalary" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3DCC91;" text="Pay Sal." textFill="#202b33" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Finance" fx:id="finance">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="transactionTable" layoutX="15.0" layoutY="15.0" prefHeight="660.0" prefWidth="526.0">
+                                    <columns>
+                                        <TableColumn fx:id="transactionId" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="transactionDate" prefWidth="124.0" text="Date" />
+                                        <TableColumn fx:id="transactionClient" prefWidth="95.0" text="Owner" />
+                                        <TableColumn fx:id="transactionAmount" prefWidth="83.0" text="Amount" />
+                                        <TableColumn fx:id="transactionState" prefWidth="60.0" text="State" />
+                                        <TableColumn fx:id="transactionType" prefWidth="88.0" text="Type" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1110.0" layoutY="605.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" style="-fx-background-color: #48AFF0;" text="Raport" onAction="#createFinaceRaport" textFill="#202b33" />
+                        <TableView fx:id="cashFlowTable" layoutX="571.0" layoutY="14.0" prefHeight="659.0" prefWidth="529.0">
+                          <columns>
+                            <TableColumn fx:id="cashFlowId" prefWidth="61.0" text="ID" />
+                            <TableColumn fx:id="cashFlowDate" prefWidth="178.0" text="Date" />
+                              <TableColumn fx:id="cashFlowAmount" prefWidth="110.0" text="Amount" />
+                              <TableColumn fx:id="cashFlowDescription" prefWidth="209.0" text="Description" />
+                          </columns>
+                        </TableView>
+                        <Label alignment="CENTER" layoutX="1110.0" layoutY="22.0" prefHeight="118.0" prefWidth="158.0" text="Actual Account State" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <effect>
+                              <SepiaTone />
+                           </effect>
+                        </Label>
+                        <Label alignment="CENTER" fx:id="actualState" layoutX="1110.0" layoutY="140.0" prefHeight="58.0" prefWidth="157.0" text="STATE" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Comments">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="commentTable" layoutX="15.0" layoutY="15.0" prefHeight="660.0" prefWidth="1170.0">
+                                    <columns>
+                                        <TableColumn fx:id="commentId" prefWidth="85.99996948242188" text="Comment ID" />
+                                        <TableColumn fx:id="userName" prefWidth="152.99998474121094" text="User name" />
+                                        <TableColumn fx:id="clientName" prefWidth="142.00003051757812" text="Client name" />
+                                        <TableColumn fx:id="comment" prefWidth="813.0" text="Comment" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="1200.0" layoutY="15.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #48AFF0;" onAction="#refreshAll" text="Refresh" textFill="#202b33" />
+                                <Button layoutX="1200.0" layoutY="95.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FF7373;" onAction="#deleteComment" text="Delete" textFill="#202b33" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

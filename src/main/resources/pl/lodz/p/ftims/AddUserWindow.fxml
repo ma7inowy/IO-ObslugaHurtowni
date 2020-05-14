@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0"
+      prefWidth="610.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.lodz.p.ftims.UserController">
+    <children>
+        <GridPane layoutX="14.0" layoutY="14.0" prefHeight="340.0" prefWidth="490.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="0.0" prefWidth="14.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="93.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="503.0" minWidth="10.0" prefWidth="379.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label text="First Name:" GridPane.columnIndex="1"/>
+                <Label text="Second Name:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Salary:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Login:" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Label text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <Label text="Type:" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                <TextField fx:id="firstName" GridPane.columnIndex="2"/>
+                <TextField fx:id="secondName" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="address" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <TextField fx:id="salary" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <TextField fx:id="login" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                <TextField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                    <children>
+                        <RadioButton mnemonicParsing="false" text="Staff">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="type"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Storekeeper" toggleGroup="$type"/>
+                        <RadioButton mnemonicParsing="false" text="WorkhouseManager" toggleGroup="$type"/>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+        <Button layoutX="514.0" layoutY="14.0" mnemonicParsing="false" prefHeight="165.0" prefWidth="70.0"
+                style="-fx-background-color: #3DCC91;" text="Submit" onAction="#submit"/>
+        <Button layoutX="514.0" layoutY="185.0" mnemonicParsing="false" prefHeight="165.0" prefWidth="70.0"
+                text="Back" onAction="#switchMainWindow"/>
+    </children>
+</Pane>
